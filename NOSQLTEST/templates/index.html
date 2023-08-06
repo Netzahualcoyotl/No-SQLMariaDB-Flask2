@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ver Posts</title>
+</head>
+<body>
+    <h1>Lista de Posts</h1>
+    <a href="posts">Editar</a>
+    {% if posts %}
+    {% for post in posts %}
+        <div>
+            <strong>Título del Usuario:</strong> {{ post.user.name }}<br>
+            <strong>Email del Usuario:</strong> {{ post.user.email }}<br>
+            <img src="{{ post.user.avatar }}" alt="Avatar" width="50" height="50"><br>
+            <strong>Contenidos de los Posts:</strong><br>
+            <ul>
+                {% for item in post.posts %}
+                    <li>
+                        <strong>Título:</strong> {{ item.title }}<br>
+                        <strong>Contenido:</strong> {{ item.content }}<br>
+                        <hr>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+{% else %}
+    <h3>No hay posts</h3>
+{% endif %}
+</body>
+</html>
+

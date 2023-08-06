@@ -1,0 +1,46 @@
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   width="800px"
+   height="600px"
+   viewBox="0 0 800 600"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+    <rect
+       width="800"
+       height="600"
+       x="0"
+       y="0"
+       fill="#FFFFFF" />
+    <text
+       x="300"
+       y="250"
+       font-size="40"
+       fill="black"
+       data-slide="1">
+        Diapositiva 1
+    </text>
+    <rect
+       width="800"
+       height="600"
+       x="0"
+       y="0"
+       fill="#2196F3"
+       display="none"
+       data-slide="2" />
+    <text
+       x="50"
+       y="250"
+       font-size="40"
+       fill="white"
+       display="none"
+       data-slide="2">
+        Gracias por su atención.
+    </text>
+</svg>
+
+
+
+
+
+

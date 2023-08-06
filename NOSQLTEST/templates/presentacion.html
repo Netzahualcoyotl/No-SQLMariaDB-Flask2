@@ -1,0 +1,92 @@
+<!-- presentation.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Presentación de Diapositivas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <svg id="presentation" xmlns="http://www.w3.org/2000/svg" width="800px" height="600px" viewBox="0 0 800 600">
+        <!-- Diapositiva 1 -->
+<foreignObject width="100%" height="100%" x="0" y="0" data-slide="1">
+    <div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+        <!-- Contenedor para el contenido -->
+        <div style="width: 80%; height: 80%; overflow: auto; padding: 20px; text-align: center;">
+            <!-- Renderizar el contenido de la diapositiva 1 -->
+            <h1>Lista de Posts</h1>
+            <a href="posts">Editar</a>
+            {% if posts %}
+            {% for post in posts %}
+                <div style="margin-top: 40px;">
+                    <strong>Título del Usuario:</strong> {{ post.user.name }}<br>
+                    <strong>Email del Usuario:</strong> {{ post.user.email }}<br>
+                    <img src="{{ post.user.avatar }}" alt="Avatar" width="50" height="50"><br>
+                    <strong>Contenidos de los Posts:</strong><br>
+                    <ul style="list-style-type: none; padding: 0;">
+                        {% for item in post.posts %}
+                            <li style="margin-bottom: 20px;">
+                                <strong>Título:</strong> {{ item.title }}<br>
+                                <strong>Contenido:</strong> {{ item.content }}<br>
+                                <hr style="margin-top: 10px; margin-bottom: 10px;">
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+            {% else %}
+            <h3>No hay posts</h3>
+            {% endif %}
+        </div>
+    </div>
+</foreignObject>
+
+
+        <!-- Diapositiva 2 -->
+        <rect width="800" height="600" x="0" y="0" fill="#2196F3" display="none" data-slide="2" />
+        <text x="50" y="250" font-size="40" fill="white" display="none" data-slide="2">Gracias por su atención.</text>
+        
+    </svg>
+
+    <script>
+        var currentSlide = 1;
+        var totalSlides = 2;
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide > totalSlides) {
+                currentSlide = 1;
+            }
+            showSlide(currentSlide);
+        }
+
+        function showSlide(slideNumber) {
+            var presentation = document.getElementById("presentation");
+            for (var i = 0; i < presentation.children.length; i++) {
+                var slide = presentation.children[i];
+                slide.style.display = slide.getAttribute("data-slide") == slideNumber ? "block" : "none";
+            }
+        }
+
+        document.getElementById("presentation").addEventListener("click", nextSlide);
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
+
+
+

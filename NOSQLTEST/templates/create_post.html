@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Post</title>
+</head>
+<body>
+    <h1>Crear Nuevo Post</h1>
+    <form method="post" action="/posts" enctype="multipart/form-data">
+        <label for="title">Título:</label>
+        <input type="text" name="title" required><br>
+
+        <label for="content">Contenido:</label>
+        <textarea name="content" rows="4" cols="50" required></textarea><br>
+
+        <label for="user_name">Nombre del Usuario:</label>
+        <input type="text" name="user_name" required><br>
+
+        <label for="user_email">Email del Usuario:</label>
+        <input type="email" name="user_email" required><br>
+        
+        <label for="avatar">Avatar:</label>
+        <input type="file" name="avatar" accept=".jpg, .png, .jpeg"><br>
+
+
+        <input type="submit" value="Crear Post">
+    </form>
+    <h1>Borrar Usuario</h1>
+    <form method="post" action="/del_user">     
+    
+        <label for="user_email">Email del Usuario:</label>
+        <input type="email" name="user_email" required><br>
+
+        <input type="submit" value="Del User">
+    </form>
+    <h1>Actualizar Usuario</h1>
+    <form action="/update_user" method="post">
+      <input type="text" name="user_email" placeholder="Correo electrónico del usuario">
+      <input type="text" name="new_name" placeholder="Nuevo nombre del usuario">
+      <input type="text" name="new_email" placeholder="Nuevo correo electrónico del usuario">
+      <input type="submit" value="Actualizar Usuario">
+    </form>  
+    
+</body>
+</html>
+
