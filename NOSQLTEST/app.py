@@ -198,12 +198,15 @@ def ver_posts():
     
     # Convertir las cadenas JSON en diccionarios
     posts_data = []
+    avatar_files = os.listdir("static/avatars")
+    print("Posts de la tabla posts",posts)
     for post in posts:
         data_json = json.loads(post['data_json'])
         user_email = data_json['user']['email']
-        avatar_filename = f"static/avatars/{user_email}.png"  # Ruta del archivo de imagen del avatar
-        data_json['user']['avatar'] = avatar_filename  # Agregar el campo 'avatar' al diccionario del usuario
-
+        for filename in avatar_files:
+            if user_email in filename:
+                avatar_filename = f"static/avatars/{filename}"  # Ruta del archivo de imagen del avatar
+        data_json['user']['avatar'] = avatar_filename  # Agregar el campo 'avatar' al diccionario del usuario 
         posts_data.append(data_json)
     
     #return render_template('index.html', posts=posts_data)
